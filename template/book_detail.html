@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Jurnallar{% endblock %}
+
+{% load i18n %} 
+{% load description_change %} 
+
+{% block content %}
+
+    <div class="row container">
+        <div class="image col-6">
+            <img src="{{book.thumb.url}}"
+            class="img-fluid"
+            alt="">
+        </div>
+        <div class="right-info col-6">
+            <div class="izoh">
+                <h2 style="color: black">{{book.name}}</h2>
+            </div>
+            <div class="description">
+                <p style="color: black">{{ request|description_change:book }}</p>
+            </div> <br>
+            {% if book.doi %}
+            <div class="izoh5">
+                <p style="color: black">DOI: {{book.doi}}</p>
+            </div>
+            {% endif %} 
+            <div class="pdf">
+                <a href="{{book.url}}" class="btn btn-sm btn-fupred btn-download fi fi-arrow-download">{% trans "Download PDF" %}</a>
+            </div>
+        </div>
+    </div>
+
+
+
+<style>
+    .container {
+        width: 100%;
+        height: 100vh;
+        padding: 5%;
+    }
+
+    .btn-fupred {
+        color: #ffffff;
+        background-color: #9a1413;
+        border-color: #9a1413;
+    }
+
+    .btn {
+        position: relative;
+    }
+
+    .btn-group-sm>.btn,
+    .btn-sm {
+        padding: .46rem 1rem;
+        font-size: 1.0625rem;
+        line-height: 1.5;
+        border-radius: .2rem;
+    }
+    .description {
+        max-height: 300px; /* Set the maximum height */
+        overflow-y: auto;  /* Enable vertical scrolling */
+    }
+</style>
+
+{% endblock %}

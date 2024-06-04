@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% load i18n %} 
+{% load check_lang %}
+
+{% block content %}
+<div class="container main">
+    <br>
+    <h2 style="text-align: center;">Редакция</h2>
+    <div class="names">
+        {% for redikt in redikts %}
+        <p><span style="text-decoration: underline;">{{ redikt.name }}</span> - {{ request|check_lang:redikt }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .main {
+        
+    }
+    .names {
+        width: 75%;
+        padding: 0 5% 0 20%;
+    }
+</style>
+{% endblock %}

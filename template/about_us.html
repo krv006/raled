@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Jurnallar{% endblock %}
+
+{% block content %}
+
+    {% load static %}
+    {% load i18n %}
+
+    <div class="card" style="border: none">
+
+        <h2 style="color: black">{% trans "Biz haqimizda:" %}</h2>
+        <p style="color: black; font-family: sans-serif">
+            {% trans "detail1" %}
+        </p>
+        <div class="row" style="padding-top: 35px; padding-bottom: 35px">
+            <div class="col-md-6">
+                <div class="book-details ">
+                    <p style="color: black; font-family: sans-serif; font-size: 17px">
+                        {% trans "detail2" %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img src="{% static "images/raled.jpg" %}" alt=""
+                         style="width: 600px; height: auto; border-radius: 10px">
+                </div>
+            </div>
+        </div>
+        <p style="color: black; font-family: sans-serif">{% trans "detail3" %}</p>
+
+        <div>
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg flex-1">
+                    <a href="https://linguiskills.org"><img style="width: 100px; height: 100px"
+                                                            src="{% static "images/img1.jpg" %}" alt="icon"
+                                                            class="mb-4"></a>
+                    <div class="text-zinc-500 dark:text-zinc-400">01</div>
+                    <h3 class="font-bold text-lg mb-2" style="color: black">{% trans "Мировые языки с уровня A1 до C1" %}</h3>
+                    <hr class="border-zinc-300 dark:border-zinc-600 mb-2">
+                    <p style="color: black" class="text-zinc-600 dark:text-zinc-300">{% trans "detail4" %}</p>
+                </div>
+                <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg flex-1">
+                    <a href="http://mahorat.org"><img style="width: 100px; height: 100px"
+                                                      src="{% static "images/img2.jpg" %}" alt="icon" class="mb-4"></a>
+                    <div class="text-zinc-500 dark:text-zinc-400">02</div>
+                    <h3 style="color: black" class="font-bold text-lg mb-2">{% trans "Повышение квалификации" %}</h3>
+                    <hr style="color: black" class="border-zinc-300 dark:border-zinc-600 mb-2">
+                    <p style="color: black" class="text-zinc-600 dark:text-zinc-300">{% trans "detail5" %}</p>
+                </div>
+                <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg flex-1">
+                    <a href="https://raled.org"><img style="width: 100px; height: 100px"
+                                                     src="{% static "images/img3.jpg" %}" alt="icon" class="mb-4"></a>
+                    <div class="text-zinc-500 dark:text-zinc-400">03</div>
+                    <h3 style="color: black" class="font-bold text-lg mb-2">{% trans "Тренинги научных исследователей" %}</h3>
+                    <hr class="border-zinc-300 dark:border-zinc-600 mb-2">
+                    <p style="color: black" class="text-zinc-600 dark:text-zinc-300">{% trans "detail6" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+{% endblock %}

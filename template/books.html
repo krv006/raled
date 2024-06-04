@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}Jurnallar{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 50%; margin: 2% 25%;">
+    {% for i in page_obj %}
+    <div class="card-body" style="margin: 2%;">
+        <div class="book-cover">
+            {% if i.thumb %}
+            <img src="{{ i.thumb.url }}">
+            {% else %}
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS01IODKzDd-XpRnvBbSDlcg6scby3AOYc2ZfA&s">
+            {% endif %}
+        </div>
+        <div class="book-details">
+            <h2>{{ i.name }}</h2>
+            <h3>{{ i.description|slice:":50" }}{% if i.description|length > 50 %}...{% endif %}</h3>
+            <h4 class="date">{{ i.date }}</h4> <br>
+            <a href="{% url 'book_detail' i.id %}" class="view-more" style="text-decoration: none;">View More</a>
+        </div>
+    </div>
+    {% endfor %}
+</div> <br>
+
+<!-- Pagination controls -->
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link" aria-hidden="true">&laquo;</span>
+        </li>
+        {% endif %}
+        
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+        {% endfor %}
+        
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link" aria-hidden="true">&raquo;</span>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+
+<style>
+    .container {
+        width: 100%;
+        height: auto;
+        padding: 5%;
+    }
+
+    .btn-fupred {
+        color: #ffffff;
+        background-color: #9a1413;
+        border-color: #9a1413;
+    }
+
+    .btn {
+        position: relative;
+    }
+
+    .btn-group-sm>.btn,
+    .btn-sm {
+        padding: .46rem 1rem;
+        font-size: 1.0625rem;
+        line-height: 1.5;
+        border-radius: .2rem;
+    }
+
+    .description {
+        max-height: 300px; /* Set the maximum height */
+        overflow-y: auto;  /* Enable vertical scrolling */
+    }
+
+    .pagination {
+        margin-top: 20px;
+    }
+
+    .pagination .page-item .page-link {
+        color: #a00000; /* Text color for page numbers */
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: white;
+        border-color: #c9c9c9;
+    }
+
+    .pagination .page-item .page-link:hover {
+        color: #a00000; 
+    }
+</style>
+
+{% endblock %}
