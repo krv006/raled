@@ -10,7 +10,7 @@ body {
 }
 
 .row {
-    margin: 0 !important;
+    margin-left: 100px !important;
 }
 
 a:hover {
