@@ -77,7 +77,7 @@ class Redikt(models.Model):
     work_place_uz = models.TextField()
     work_place_ru = models.TextField()
     work_place_en = models.TextField()
-    discription = models.TextField(blank=True, null=True)
+    url_linkedin = models.URLField()
 
     def __str__(self):
         return self.name

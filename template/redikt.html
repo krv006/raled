@@ -2,23 +2,26 @@
 
 {% block title %}Home Page{% endblock %}
 
-{% load i18n %} 
+{% load i18n %}
 {% load check_lang %}
 
 {% block content %}
 <div class="container main">
     <br>
-    <h2 style="text-align: center;">Редакция</h2>
+    <h2 style="text-align: center; color: black">Редакция</h2>
     <div class="names">
         {% for redikt in redikts %}
-        <p><span style="text-decoration: underline;">{{ redikt.name }}</span> - {{ request|check_lang:redikt }}</p>
+        <p style="color: black"><span style="text-decoration: underline;">{{ redikt.name }}</span> - {{ request|check_lang:redikt }}</p>
         {% endfor %}
+{#    <a style="color: black" href={{ redikt.url_linkedin }}#}
+{#                <a href="#"><i class='bx bxl-facebook-square'></i></a>#}
+
     </div>
 </div>
 
 <style>
     .main {
-        
+
     }
     .names {
         width: 75%;
