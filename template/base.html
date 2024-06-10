@@ -19,46 +19,45 @@
 
 <body>
 <header>
-    <div class="top-bar">
-        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
-        <div class="top-right">
-<span>
-    <form action="{% url 'set_language' %}" method="post" style="display:inline;">
-        {% csrf_token %}
-        <input name="next" type="hidden" value="{{ request.path }}">
-        <input name="language" type="hidden" value="uz">
-        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer;">UZ</button>
-    </form> |
-    <form action="{% url 'set_language' %}" method="post" style="display:inline;">
-        {% csrf_token %}
-        <input name="next" type="hidden" value="{{ request.path }}">
-        <input name="language" type="hidden" value="ru">
-        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer;">RU</button>
-    </form> |
-    <form action="{% url 'set_language' %}" method="post" style="display:inline;">
-        {% csrf_token %}
-        <input name="next" type="hidden" value="{{ request.path }}">
-        <input name="language" type="hidden" value="en">
-        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer;">ENG</button>
-    </form>
-</span>
 
-
-            <div class="social-icons">
-                <a href="#"><i class='bx bxl-facebook-square'></i></a>
-                <a href="#"><i class='bx bxl-medium-old'></i></a>
-                <a href="#"><i class='bx bxl-linkedin-square'></i></a>
-            </div>
-        </div>
-    </div>
     <nav class="main-nav">
+         <div class="top-bar">
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+
+        </div>
+        <div>
+        <div>
         <a href="{% url 'index' %}">{% trans "Bosh sahifa" %}</a>
         <a href="{% url 'about_us' %}">{% trans "Biz haqimizda" %} </a>
         <a href="{% url 'redikt' %}">{% trans "Redaktsia" %} </a>
         <a href="{% url 'books' %}">{% trans "Maqolalar" %} </a>
         <a href="{% url 'send' %}">{% trans "Material yuborish" %} </a>
         <a href="{% url 'contact' %}">{% trans "Bog'lanish" %} </a>
-        <a style="margin-left: -150px;" href="#" class="search-icon"><i class='bx bx-searchh'></i></a>
+        <a href="#">Arxiv</a>
+        </div>
+        </div>
+        <div class="top-right">
+<span>
+    <form action="{% url 'set_language' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}">
+        <input name="language" type="hidden" value="uz">
+        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer; color: white">UZ</button>
+    </form> <span style="color:white">|</span>
+    <form action="{% url 'set_language' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}">
+        <input name="language" type="hidden" value="ru">
+        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer; color: white">RU</button>
+    </form> <span style="color:white">|</span>
+    <form action="{% url 'set_language' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}">
+        <input name="language" type="hidden" value="en">
+        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer;color: white">ENG</button>
+    </form>
+</span>
+        </div>
     </nav>
 </header>
 
