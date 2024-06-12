@@ -57,7 +57,7 @@ class Worker(models.Model):
 
     def __str__(self):
         return self.full_name
-
+aasa
 
 class Social_media(models.Model):
     icon = models.CharField()
